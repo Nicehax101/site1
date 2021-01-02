@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    {% block titl %}
+    {%endblock%}
+
+    <div id="welcome">
+        welcome my good dude
+
+    </div>
+    
+    <div>
+        <a href="{% url 'index' %}" ></a>
+        <a href="{% url 'login_views' %}" ></a>
+        <a href="{% url 'signup' %}" ></a>
+        <a href="{% url 'videos:index' %}"></a>
+        
+
+    </div>
+
+    <!-- fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+
+    <!-- fonts -->
+    
+</head>
+<body class="site-form">
+
+    {% block content %}
+    {%endblock%}
+
+</body>
+</html>

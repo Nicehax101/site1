@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{%block titl%}
+<title>Videos</title>
+{%endblock%}
+
+{%block content%}
+    <h1>Videos</h1>
+    <div class="vids">
+        {% for vid in videos %}
+            <div class="vide">
+                <h2><a href="video/{{ vid.slug }}">{{ vid.title }}</a></h2>
+                <p>{{ vid.snippet }}</p>
+                <p>{{ vid.date }}</p> 
+            </div>
+
+        {%endfor%}
+{%endblock%}

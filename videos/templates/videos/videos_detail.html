@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{%block content%}
+        <h1>{{video.title}}</h1> 
+        <p>{{video.body}}</p>
+        <video width="1280" height="720" controls="controls">
+                 <source src="{{video.video.url}}" type="video/mp4">
+        </video>
+        <p>{{video.date}}</p>
+{%endblock%}
