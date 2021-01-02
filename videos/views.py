@@ -17,7 +17,7 @@ class videosview(ListView,Video):
     context_object_name='videos'
     queryset = Video.objects.all().order_by('-date')
 
-
+#slug populates from title to show the detail view
 class videos_detailview(DetailView):
     model= Video
     template_name= 'videos/videos_detail.html'  
