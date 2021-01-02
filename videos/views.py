@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render,get_object_or_404
 from django.template import RequestContext, context
 from django.views.generic import View,ListView,DetailView
 from django.http import HttpResponseRedirect
-from videos.forms import postform,handle_uploaded_file
+from videos.forms import postform
 from django.http import HttpResponse
 from .models import Video
 from . import models
