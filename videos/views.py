@@ -9,6 +9,8 @@ from .models import Video
 from . import models
 from . import forms
 
+#changed videosview,videos_detailview to class based views
+
 class videosview(ListView,Video):
 
     template_name='videos/platform.html'
