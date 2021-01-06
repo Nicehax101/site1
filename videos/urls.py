@@ -8,7 +8,7 @@ from .views import (
     videos_detailview,
     VideoCreateView,
     VideoUpdateView,
-
+    VideoDeleteView,
     
 ) 
 
@@ -19,6 +19,7 @@ urlpatterns = [
     path('create',VideoCreateView.as_view(), name='newpost'),
     path('<slug>',videos_detailview.as_view(),name='detail'),
     path('<slug>/update',VideoUpdateView.as_view(),name='update'),
+    path('<slug>/delete',VideoDeleteView.as_view(),name='delete'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

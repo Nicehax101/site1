@@ -1,6 +1,6 @@
 from mysite import forms
 from django.shortcuts import redirect, render,get_object_or_404
-from django.urls import reverse
+from django.urls import reverse,reverse_lazy
 from django.template import RequestContext, context
 from django.views.generic import View,ListView,DetailView,CreateView,DeleteView,UpdateView
 from django.http import HttpResponseRedirect
@@ -65,4 +65,9 @@ class VideoUpdateView(UpdateView):
         return redirect(reverse("videos:detail", kwargs={
             'slug': form.instance.slug}))
 
-    
+
+class VideoDeleteView(DeleteView):
+    model = Video
+    template_name = "videos/confirm_delete.html"
+    context_object_name = 'video'
+    success_url = reverse_lazy('videos:index')

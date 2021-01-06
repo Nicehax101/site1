@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{%block titl%}
+<title>NewPost</title>
+{%endblock%}
+{% block content %}
+
+<h1>Post</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ video }}"?</p>
+  <input type="submit" value="Confirm">
+  <a href="{% url 'videos:index' %}">Cancel</a>
+</form>
+{%endblock%}
