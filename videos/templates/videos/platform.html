@@ -9,7 +9,7 @@
     <div class="vids">
         {% for vid in videos %}
             <div class="vide">
-                <h2><a href="video/{{ vid.slug }}">{{ vid.title }}</a></h2>
+                <h2><a href="{{ vid.slug }}">{{ vid.title }}</a></h2>
                 <p>{{ vid.snippet }}</p>
                 <p>{{ vid.date }}</p> 
             </div>
