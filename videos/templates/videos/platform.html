@@ -5,6 +5,12 @@
 {%endblock%}
 
 {%block content%}
+<form action="{% url 'videos:search' %}">
+    <div class="form-group">
+      <input type="search" name="q" id="search" placeholder="What are you looking for?">
+      <button type="submit" class="submit"><i class="icon-search-1"></i></button>
+    </div>
+</form>
     <h1>Videos</h1>
     <div class="vids">
         {% for vid in videos %}

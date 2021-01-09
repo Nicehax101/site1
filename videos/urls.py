@@ -9,6 +9,7 @@ from .views import (
     VideoCreateView,
     VideoUpdateView,
     VideoDeleteView,
+    VideoSearchView
     
 ) 
 
@@ -17,6 +18,7 @@ app_name = 'videos'
 urlpatterns = [
     path('', videosview.as_view(), name='index'),
     path('create',VideoCreateView.as_view(), name='newpost'),
+    path('search/',VideoSearchView.as_view(),name='search'),
     path('<slug>',videos_detailview.as_view(),name='detail'),
     path('<slug>/update',VideoUpdateView.as_view(),name='update'),
     path('<slug>/delete',VideoDeleteView.as_view(),name='delete'),

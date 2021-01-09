@@ -1,8 +1,17 @@
+from django.db.models.query import QuerySet
+from django.db.models import Q
 from mysite import forms
 from django.shortcuts import redirect, render,get_object_or_404
 from django.urls import reverse,reverse_lazy
 from django.template import RequestContext, context
-from django.views.generic import View,ListView,DetailView,CreateView,DeleteView,UpdateView
+from django.views.generic import (
+    View,
+    ListView,
+    DetailView,
+    CreateView,
+    DeleteView,
+    UpdateView
+    )
 from django.http import HttpResponseRedirect
 from videos.forms import postform
 from django.http import HttpResponse
@@ -71,3 +80,18 @@ class VideoDeleteView(DeleteView):
     template_name = "videos/confirm_delete.html"
     context_object_name = 'video'
     success_url = reverse_lazy('videos:index')
+
+class VideoSearchView(View):
+
+    def get(self,request,*args,**kwargs):
+        querySet = Video.objects.all()
+        query = request.GET.get('q')
+        if query:
+            querySet = querySet.filter(
+                Q(title__icontains=query)|
+                Q(body__icontains=query)
+            ).distinct()
+        context={
+            'queryset':querySet
+        }
+        return render(request,'videos/search_results.html',context)

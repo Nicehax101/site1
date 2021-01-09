@@ -5,7 +5,7 @@
 {% block content %}
 
 <h1>Post</h1>
-<form action="{% url 'videos:newpost' %}" method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
   {{form}}
   <input type="submit" value="upload">

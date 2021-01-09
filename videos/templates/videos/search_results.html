@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%block titl%}
+<title>Search Results</title>
+{%endblock%}
+{% block content %}
+
+<h2>Results</h2>
+{% for videos in queryset %}
+    <div class="vide"></div>
+        <h3><a href="{% url 'videos:detail' slug=videos.slug %}">{{ videos.title }}</a></h3>
+            <p>{{ videos.snippet }}</p>
+            <p>{{ videos.date }}</p> 
+    </div>
+    <br/>
+    
+{% endfor %}
+
+{%endblock%}
+
+
+
