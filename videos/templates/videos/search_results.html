@@ -4,6 +4,13 @@
 {%endblock%}
 {% block content %}
 
+<form action="{% url 'videos:search' %}">
+    <div class="form-group">
+      <input type="search" name="q" id="search" value="{{value}}" placeholder="What are you looking for?">
+      <button type="submit" class="submit"><i class="icon-search-1">Search</i></button>
+    </div>
+</form>
+
 <h2>Results</h2>
 {% for videos in queryset %}
     <div class="vide"></div>

@@ -92,6 +92,7 @@ class VideoSearchView(View):
                 Q(body__icontains=query)
             ).distinct()
         context={
-            'queryset':querySet
+            'queryset':querySet,
+            'value':request.GET['q']
         }
         return render(request,'videos/search_results.html',context)
